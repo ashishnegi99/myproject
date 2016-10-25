@@ -48,6 +48,7 @@ class Test_Suite_Admin(admin.ModelAdmin):
 class racktestresultAdmin(ImportExportModelAdmin):
 	pass
 	resource_class = ResultResource
+	list_filter = ['Date']
 	list_display = ('idTestResult', 'Date', 'ProjectName', 'TestJobName', 'TestJobExecutionId', 'SuiteName', 'TestCaseID', 'Author', 'Tester', 'BoxType', 'BoxUnitAddress', 'BoxIP', 'TotalActions', 'TotalConditions', 'PassNumbers', 'FailNumbers', 'Result', 'ExecutionTime')
 
 admin.site.register(Revo, RevoAdmin)

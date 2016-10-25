@@ -3,19 +3,31 @@
 
 {% load staticfiles %}
 
-<head> 
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content=""> 
+    <meta name="author" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" href="{% static 'app/images/smallicon.png' %}" />
-    <title>Verizon</title> 
-    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" /> 
-    <link href="{% static 'app/content/style.css' %}" rel="stylesheet"> 
+    <title>Verizon</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
+    <link href="{% static 'app/content/style.css' %}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="{% static 'app/scripts/script.js' %}"></script> 
+    <script src="{% static 'app/scripts/script.js' %}"></script>
+    <!--<meta charset="utf-8">-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <!--<meta name="description" content="">-->
+    <!--<meta name="author" content="">-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge" />-->
+    <!--<link rel="shortcut icon" href="{% static 'app/images/smallicon.png' %}" />-->
+    <!--<title>Verizon</title>-->
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />-->
+    <!--<link href="{% static 'app/content/style.css' %}" rel="stylesheet">-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+    <!--<script src="{% static 'app/scripts/script.js' %}"></script>-->
 </head> 
 
 
@@ -71,12 +83,12 @@
 {% csrf_token %}
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css"/>
-<div class="col-md-3"> 
-     <div class="quote-box">  
+<div class="col-md-3">
+     <div class="quote-box">
       <p class="quotation-mark">
         Set Top Box
         <span class="pull-right"><img src="{% static 'app/images/settopbox.png' %}"></span>
-      </p>  
+      </p>
       <hr>
 
 <Div class="quote-text scroller" id="STBStatus">
@@ -89,7 +101,7 @@
 </div>
    </div>
 
-  
+
     </div>
 </div>
 
@@ -144,120 +156,286 @@
     </div>
 </div>
 
+
+<!--<div>-->
+<!--<form action="{% url 'Revo' %}" method="post">-->
+<!--{% csrf_token %}-->
+
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css"/>-->
+<!--<div class="col-md-3">-->
+     <!--<div class="quote-box">-->
+      <!--<p class="quotation-mark">-->
+        <!--Jobs Execution Status-->
+        <!--<span class="pull-right"><img src="{% static 'app/images/settopbox.png' %}"></span>-->
+      <!--</p>-->
+      <!--<hr>-->
+
+<!--<Div class="quote-text scroller" id="STBStatus">-->
+  <!--</Div>-->
+
+    <!--</div>-->
+<!--</div>-->
+
+<!--<div class="col-md-3">-->
+        <!--<div class="quote-box runquote">-->
+          <!--<script type="text/javascript">-->
+          <!--function show_alert()-->
+          <!--{-->
+          <!--alert("Run Successful!");-->
+          <!--}-->
+          <!--</script>-->
+          <!--<input type="image" name="submit" img src="{% static 'app/images/run.png' %}" alt="Submit" />-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</form>-->
+   <!--</div>-->
+
+
+
+			<script>
+				 $(function() {
+					$('table').footable();
+				});
+			</script>
+
+
+			<table class="table job-status_table" data-sorting="true">
+				<thead>
+					<tr>
+						<th >JOB NAME</th>
+						<th data-breakpoints="xs">STB NAME</th>
+						<th data-breakpoints="xs sm md">JOB START TIME</th>
+						<th data-breakpoints="xs sm md">JOB END TIME</th>
+						<th data-breakpoints="xs sm md" data-sortable="false">JOB STATUS</th>
+						<th data-breakpoints="xs sm" data-sortable="false">STOP JOB</th>
+						<th data-sortable="false">
+							REPORTS &nbsp; &nbsp;<i class="fa fa-refresh" aria-hidden="true" style="cursor: pointer"></i>
+						</th>
+					</tr>
+				</thead>
+				<tbody class="Result">
+					<style>
+						.progress.active .progress-bar {
+						-webkit-transition: none !important;
+						transition: none !important;
+					}
+					</style>
+					<tr>
+
+						<td>JOB 1</td>
+						<td>STB 1</td>
+
+						<td>10/23/2016 9:04 AM</td>
+						<td>----</td>
+						<td><!--IN PROGRESS-->
+							<div class="progress progress-striped active">
+								<div class="progress-bar progress-bar-50" style="width:0%" title="50% progress"></div>
+							</div>
+							<div style="float: left; color: blue; display: none">progress</div>
+						</td>
+						<td data-editable="true"><button data-role="button" class="btn_stop btn btn-danger">Stop</button> </td>
+						<td data-editable="true"><a href="#">REPORT LINK</a></td>
+					</tr>
+
+					<tr>
+
+						<td>JOB 2</td>
+						<td>STB 3</td>
+
+						<td>10/23/2016 11:04 AM</td>
+						<td>----</td>
+						<td>
+							<div class="progress progress-striped active">
+								<div class="progress-bar progress-bar-70" style="width:0%" title="70% progress"></div>
+							</div>
+						</td>
+						<td data-editable="true"><button data-role="button" class="btn_stop btn btn-danger">Stop</button> </td>
+						<td data-editable="true"><a href="#">REPORT LINK</a></td>
+					</tr>
+					<tr>
+
+						<td>JOB 3</td>
+						<td>STB 4</td>
+
+						<td>10/23/2016 11:04 AM</td>
+						<td>10/23/2016 1:00 PM</td>
+						<td>
+							<div class="progress progress-striped active">
+								<div class="progress-bar progress-bar-success" style="width:0%" title="Completed"></div>
+							</div>
+						</td>
+						<td data-editable="true"><button data-role="button" class="btn_stop btn btn-danger">Stop</button> </td>
+						<td data-editable="true"><a href="#">REPORT LINK</a></td>
+					</tr>
+					<tr>
+
+						<td>JOB 4</td>
+						<td>STB 2</td>
+
+						<td>10/23/2016 11:04 AM</td>
+						<td>10/23/2016 11:05 AM</td>
+						<td>
+							<div class="progress progress-striped">
+								<div class="progress-bar progress-bar-danger" style="width:0%" title="Failed"></div>
+							</div>
+						</td>
+						<td data-editable="true"><button data-role="button" class="btn_stop btn btn-danger">Stop</button> </td>
+						<td data-editable="true"><a href="#">REPORT LINK</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<script>
+					$(".progress-bar-50").animate({
+						width: "50%"
+					}, 2500);
+
+			</script>
+			<script>
+					$(".progress-bar-70").animate({
+						width: "70%"
+					}, 2500);
+
+			</script>
+			<script>
+
+					$(".progress-bar-success").animate({
+						width: "100%"
+					}, 2500);
+			</script>
+			<script>
+
+					$(".progress-bar-danger").animate({
+						width: "100%"
+					}, 2500);
+			</script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+			<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+			<script src="js/bootstrap-sortable.js"></script>
+			<link rel="stylesheet" type="text/css" src="plugins/bootstrap-sortable.css">
+
+			<script src="plugins/footable-components.latest/js/footable.core.js"></script>
+
+			<script src="plugins/footable-components.latest/js/footable.sorting.js"></script>
+       </div>
+    </section>
+	<script src="plugins/bootstrap/js/bootstrap.js"></script>
+	<script src="plugins/node-waves/waves.js"></script>
+	<script src="js/admin.js"></script>
+
 <!--test summary starts-->
-<<div class="container secondcontainer">
-<div class="row">
-  <div class="col-md-12 divsub" >
-       <div class="below-box">
-      <p class="quotation-mark2">
-        Test Summary
-        <span class="pull-right"><img src="{% static 'app/images/test.png' %}"></span>
-      </p>
+<!--<<div class="container secondcontainer">-->
+<!--<div class="row">-->
+  <!--<div class="col-md-12 divsub" >-->
+       <!--<div class="below-box">-->
+      <!--<p class="quotation-mark2">-->
+        <!--Test Summary-->
+        <!--<span class="pull-right"><img src="{% static 'app/images/test.png' %}"></span>-->
+      <!--</p>-->
 
-      <div class="panel panel-default">
+      <!--<div class="panel panel-default">-->
 
-        <table class="table table-fixed">
-          <thead >
-            <tr>
-               <th class="col-xs-2 testhead"><p class="">Test Suite</p></th>
-         <th class="col-xs-2 testhead"><p class="headp">Test Case Name</p></th>
-         <th class="col-xs-2 testhead"><p class="headp">Set Top Box</p></th>
-         <th class="col-xs-2 testhead"><p class="headp">Start Time</p></th>
-         <th class="col-xs-2 testhead"><p class="headp">End Time</p></th>
-         <th class="col-xs-2 testhead"><p class="headp">Status</p></th>
-            </tr>
-          </thead>
-          <tbody class="scroller testsum">
-            <tr>
-      <td style="font-size:95%;" class="col-xs-2"><p>Test Suite #1</p></td><td style="font-size:95%;" class=" col-xs-2"><p>Test Case #1</p></td>
-       <td style="font-size:95%;" class="col-xs-2"><p>STB#1</p></td>
-       <td style="font-size:95%;" class="col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
-       <td style="font-size:95%;" class="col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
-       <td style="font-size:95%;" class="col-xs-2"> <span class="testreportwar testreport"> Not Tested</span></td>
-      </tr>
-            <tr>
-             <td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #1</p></td><td style="font-size:95%;" class=" col-xs-2"><p>Test Case #2</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>STB#1</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
-       <td style="font-size:95%;" class="col-xs-2"> <span class="testreportsuccess testreport">Completed</span></td>
+        <!--<table class="table table-fixed">-->
+          <!--<thead >-->
+            <!--<tr>-->
+               <!--<th class="col-xs-2 testhead"><p class="">Test Suite</p></th>-->
+         <!--<th class="col-xs-2 testhead"><p class="headp">Test Case Name</p></th>-->
+         <!--<th class="col-xs-2 testhead"><p class="headp">Set Top Box</p></th>-->
+         <!--<th class="col-xs-2 testhead"><p class="headp">Start Time</p></th>-->
+         <!--<th class="col-xs-2 testhead"><p class="headp">End Time</p></th>-->
+         <!--<th class="col-xs-2 testhead"><p class="headp">Status</p></th>-->
+            <!--</tr>-->
+          <!--</thead>-->
+          <!--<tbody class="scroller testsum">-->
+            <!--<tr>-->
+      <!--<td style="font-size:95%;" class="col-xs-2"><p>Test Suite #1</p></td><td style="font-size:95%;" class=" col-xs-2"><p>Test Case #1</p></td>-->
+       <!--<td style="font-size:95%;" class="col-xs-2"><p>STB#1</p></td>-->
+       <!--<td style="font-size:95%;" class="col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>-->
+       <!--<td style="font-size:95%;" class="col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>-->
+       <!--<td style="font-size:95%;" class="col-xs-2"> <span class="testreportwar testreport"> Not Tested</span></td>-->
+      <!--</tr>-->
+            <!--<tr>-->
+             <!--<td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #1</p></td><td style="font-size:95%;" class=" col-xs-2"><p>Test Case #2</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>STB#1</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>-->
+       <!--<td style="font-size:95%;" class="col-xs-2"> <span class="testreportsuccess testreport">Completed</span></td>-->
 
-            </tr>
+            <!--</tr>-->
 
-            <tr>
-       <td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #2</p></td><td style="font-size:95%;" class=" col-xs-2"><p>Test Case #1</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>STB#1</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
-       <td style="font-size:95%;" class="col-xs-2"><span class="testreportfailed testreport">Test Failed</span></td>
-            </tr>
-            <tr>
-             <td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #3</p></td><td style="font-size:95%;" class=" col-xs-2"><p>Test Case #1</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>STB#2</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
-       <td style="font-size:95%;" class="col-xs-2"> <span class="testreportsuccess testreport">Completed</span></td>
-            </tr>
-            <tr>
-      <td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #3</p></td><td style="font-size:95%;" class=" col-xs-2"><p>Test Case #2</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>STB#2</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
-       <td style="font-size:95%;" class="col-xs-2"> <span class="testreportwar testreport"> Not Tested</span></td>
-            </tr>
-            <tr>
-              <td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #3</p></td><td style="font-size:95%;" class=" col-xs-2"><p>Test Case #4</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>STB#2</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
-      <td style="font-size:95%;" class="col-xs-2"> <span class="testreportwar testreport"> Not Tested</span></td>
-            </tr>
+            <!--<tr>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #2</p></td><td style="font-size:95%;" class=" col-xs-2"><p>Test Case #1</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>STB#1</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>-->
+       <!--<td style="font-size:95%;" class="col-xs-2"><span class="testreportfailed testreport">Test Failed</span></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+             <!--<td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #3</p></td><td style="font-size:95%;" class=" col-xs-2"><p>Test Case #1</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>STB#2</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>-->
+       <!--<td style="font-size:95%;" class="col-xs-2"> <span class="testreportsuccess testreport">Completed</span></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+      <!--<td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #3</p></td><td style="font-size:95%;" class=" col-xs-2"><p>Test Case #2</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>STB#2</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>-->
+       <!--<td style="font-size:95%;" class="col-xs-2"> <span class="testreportwar testreport"> Not Tested</span></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+              <!--<td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #3</p></td><td style="font-size:95%;" class=" col-xs-2"><p>Test Case #4</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>STB#2</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>-->
+      <!--<td style="font-size:95%;" class="col-xs-2"> <span class="testreportwar testreport"> Not Tested</span></td>-->
+            <!--</tr>-->
 
-        <tr>
-       <td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #5</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>Test Case #4</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>STB#3</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
-       <td style="font-size:95%;" class="col-xs-2"><span class="testreportfailed testreport">Test Failed</span></td>
-            </tr>
-
-
-      <tr>
-             <td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #5</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>Test Case #5</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>STB#3</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
-       <td style="font-size:95%;" class="col-xs-2"> <span class="testreportsuccess testreport">Completed</span></td>
-            </tr>
+        <!--<tr>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #5</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>Test Case #4</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>STB#3</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>-->
+       <!--<td style="font-size:95%;" class="col-xs-2"><span class="testreportfailed testreport">Test Failed</span></td>-->
+            <!--</tr>-->
 
 
-      <tr>
-             <td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #5</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>Test Case #6</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>STB#3</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
-       <td style="font-size:95%;" class="col-xs-2"> <span class="testreportsuccess testreport">Completed</span></td>
-            </tr>
+      <!--<tr>-->
+             <!--<td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #5</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>Test Case #5</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>STB#3</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>-->
+       <!--<td style="font-size:95%;" class="col-xs-2"> <span class="testreportsuccess testreport">Completed</span></td>-->
+            <!--</tr>-->
 
-      <tr>
-             <td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #5</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>Test Case #1</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>STB#4</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
-       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
-       <td style="font-size:95%;" class="col-xs-2"> <span class="testreportsuccess testreport">Completed</span></td>
-            </tr>
 
-          </tbody>
-        </table>
-      </div>
-    </div>
-</div>
-  </div>
-  </div>
+      <!--<tr>-->
+             <!--<td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #5</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>Test Case #6</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>STB#3</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>-->
+       <!--<td style="font-size:95%;" class="col-xs-2"> <span class="testreportsuccess testreport">Completed</span></td>-->
+            <!--</tr>-->
+
+      <!--<tr>-->
+             <!--<td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #5</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>Test Case #1</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>STB#4</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>-->
+       <!--<td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>-->
+       <!--<td style="font-size:95%;" class="col-xs-2"> <span class="testreportsuccess testreport">Completed</span></td>-->
+            <!--</tr>-->
+
+          <!--</tbody>-->
+        <!--</table>-->
+      <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
 
 <!--test summary ends-->
       <footer id="footer">
@@ -277,15 +455,18 @@
           $("#STBStatus").empty();
             $.each(result, function(i, item){
               if(item.STBStatus == "1"){
-                colorclass = "available"
+                colorclass = "available";
+                status = "";
               }
               if(item.STBStatus == "0"){
-                colorclass = "offline"
+                colorclass = "offline";
+                status = "disabled";
               }
               if(item.STBStatus == "2"){
-                colorclass = "In use"
+                colorclass = "In use";
+                status = "";
               }
-                $("#STBStatus").append("<label class='radio'><input type='radio' name='optradio' value='"+item.STBLabel+"'>" +item.STBLabel +"   <i class='fa fa-circle pull-right  "+colorclass+"' aria-hidden='true'></i></label> <hr>");
+                $("#STBStatus").append("<label class='radio'><input type='radio' name='optradio' "+status+" value='"+item.STBLabel+"'>" +item.STBLabel +"   <i class='fa fa-circle pull-right  "+colorclass+"' aria-hidden='true'></i></label> <hr>");
             });
         });
    }

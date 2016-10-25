@@ -1,41 +1,5 @@
-<project>
-  <actions />
-  <description />
-  <keepDependencies>false</keepDependencies>
-  <properties />
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.5.3">
-    <configVersion>2</configVersion>
-    <userRemoteConfigs>
-      <hudson.plugins.git.UserRemoteConfig>
-        <url>https://github.com/thirumalrajsekar/workspacce.git</url>
-        <credentialsId>demo</credentialsId>
-      </hudson.plugins.git.UserRemoteConfig>
-    </userRemoteConfigs>
-    <branches>
-      <hudson.plugins.git.BranchSpec>
-        <name>*/master</name>
-      </hudson.plugins.git.BranchSpec>
-    </branches>
-    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
-    <submoduleCfg class="list" />
-    <extensions />
-  </scm>
-  <canRoam>true</canRoam>
-  <disabled>false</disabled>
-  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
-  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers />
-  <concurrentBuild>false</concurrentBuild>
-  <builders>
-    <hudson.tasks.Shell>
-      <command>cd C:\git_new\evo_automation\ tests\TestRunner
-wbfiwe
-STB#3
-REG_AGREED_SUITE03, REG_AGREED_SUITE04, REG_AGREED_SUITE05, GENERAL_EVO_SCRIPTS
+<project><actions /><description /><keepDependencies>false</keepDependencies><properties /><scm class="hudson.scm.NullSCM" /><canRoam>true</canRoam><disabled>false</disabled><blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding><blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding><triggers /><concurrentBuild>false</concurrentBuild><builders><hudson.plugins.python.Python plugin="python@1.3"><command>cd C:\git_new\evo_automation\ tests\TestRunner
+STB 1
+REG_AGREED_SUITE01
 True 
-C:\git_new\evo_automation\ tests\TestRunner\ReportFile C:\git_new\evo_automation\ reports</command>
-    </hudson.tasks.Shell>
-  </builders>
-  <publishers />
-  <buildWrappers />
-</project>
+C:\git_new\evo_automation\ tests\TestRunner\ReportFile C:\git_new\evo_automation\ reports</command></hudson.plugins.python.Python></builders><publishers /><buildWrappers /></project>

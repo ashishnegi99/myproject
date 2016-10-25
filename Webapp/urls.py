@@ -46,6 +46,10 @@ urlpatterns = patterns("",
 
     url(r"^Json", "app.views.Json", name="Json"),
 
+## Date Picker's
+
+    # url(r"^Datepicker", "app.views.search", name="Datepicker"),
+
 ## Appium's
     url(r"^Appium", "app.views.Appium", name="Appium"),
 

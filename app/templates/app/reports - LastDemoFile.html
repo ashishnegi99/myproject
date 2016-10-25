@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+{% load staticfiles %}
+
+<head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content=""> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="{% static 'app/images/smallicon.png' %}" />
+    <title>Verizon</title> 
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" /> 
+    <link href="{% static 'app/content/style.css' %}" rel="stylesheet"> 
+    
+    
+</head> 
+
+<body>
+<div class="container mainpage">
+    <a href="{% url 'home' %}">
+    <img src="{% static 'app/images/Console.png' %}" > 
+    </a>
+    <a href="{% url 'Reports' %}">
+      <img src="{% static 'app/images/Reports.png' %}">
+    </a>
+    <img src="{% static 'app/images/verizon.png' %}" class="pull-right verizonicon">
+    
+</div>
+
+
+<form action="{% url 'Reports' %}" method="get">
+{% csrf_token %}
+
+<script src="{% static 'app/scripts/highcharts.js' %}" type="text/javascript"></script>
+
+<div class="row">
+        <div class="col-md-12">
+            <div class="col-md-2 report_title">
+                <p>Build</p>
+                <select >
+                  <option></option>
+                  <option>APR 4.1</option>
+                  <option>APR 4.5</option>
+                  <option>APR 4.6</option>
+                </select>
+            </div>
+            <div class="col-md-4 report_title">
+                <p>Date Range</p>
+                <select >
+                  <option></option>
+                  <option>Last One Week</option>
+                  <option>Last 15 days</option>
+                  <option>Last 30 days</option>
+                  <option>Last 90 days</option>
+                  <option>Last six months</option>
+                  <option>Custom</option>
+                </select>
+            </div>
+            
+            <link href="{% static 'app/content/jquery-ui.css' %}" rel="stylesheet">
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+            <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+            
+        <script>
+         $(function() {
+            $( "#datepicker-1" ).datepicker();
+            $( "#datepicker-2" ).datepicker();
+
+         });
+        </script>                       
+       
+        <table>
+        <tr>
+        <td> From </td>
+            <td><input type="text" name="q1" placeholder="YYYY-MM-DD">  </td>
+        <!--<td><input type="text" id="datepicker-1" class="datepicker" name="q1" placeholder="MM/DD/YYYY"> </td>-->
+        <td> To </td>
+        <!--<td><input type="text" id="datepicker-2" class="datepicker" name="q2" placeholder="MM/DD/YYYY"></td>-->
+        <td><input type="text" name="q2" placeholder="YYYY-MM-DD"> </td>
+            <br>
+        <td><input type="submit" value="Search"></td>
+        </tr>
+        </table>
+      
+
+        </div>
+</div>
+
+
+
+    {% load chartit %}
+    {{ revochart|load_charts:"chart_1,chart_2,chart_3" }}
+    
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel with-nav-tabs  ">
+                <div class="panel-heading">
+                    <ul class="nav nav-tabs">
+                        <li class=""><a id="chart_1" class="tab-fix" href="" data-toggle="tab">Chart 1</a></li>
+                        <li  ><a href="" id="chart_2" class="tab-fix"  data-toggle="tab">Chart 2</a></li>
+                        <li  ><a href="" id="chart_3" class="tab-fix"  data-toggle="tab">Chart 3</a></li>
+                    </ul>
+                </div>
+                
+
+            </div>
+        </div> 
+    </div>
+
+</form>
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                     Powered by <img src="{% static 'app/images/hcl.png' %}"> 
+                </div> 
+            </div>
+        </div>
+    </footer>
+<!--   </form>
+ -->
+</body>
+</html>

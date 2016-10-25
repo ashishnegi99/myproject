@@ -39,7 +39,7 @@ class Revo(models.Model):
 
 class racktestresult(models.Model):
     idTestResult = models.IntegerField()
-    Date = models.DateTimeField()
+    Date = models.DateField()
     ProjectName = models.CharField(max_length=255)
     TestJobName = models.CharField(max_length=255)
     TestJobExecutionId = models.CharField(max_length=255)

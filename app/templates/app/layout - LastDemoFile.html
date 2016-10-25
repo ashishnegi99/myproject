@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+{% load staticfiles %}
+
+<head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content=""> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="{% static 'app/images/smallicon.png' %}" />
+    <title>Verizon</title> 
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" /> 
+    <link href="{% static 'app/content/style.css' %}" rel="stylesheet"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{% static 'app/scripts/script.js' %}"></script> 
+</head> 
+
+
+<body onload="stbststus()">
+
+
+<div class="container mainpage">
+    <a href="{% url 'home' %}">
+    <img src="{% static 'app/images/Console.png' %}" > 
+    </a>
+    <a href="{% url 'Reports' %}">
+      <img src="{% static 'app/images/Reports.png' %}">
+    </a>
+    <img src="{% static 'app/images/verizon.png' %}" class="pull-right verizonicon">
+    
+</div>
+<div class="container subdiv">
+<div class="row">
+    <div class="col-md-3 divsub" > 
+           <div class="quote-box"> 
+      <p class="quotation-mark">
+        Choose Tool
+        <span class="pull-right"><img src="{% static 'app/images/icon1.png' %}"></span>
+      </p>  
+      <hr>
+   <form class="quote-text scroller">
+    <a href="{% url 'Revo' %}">
+   <label class="radio ">
+   <input type="radio" name="toolradio">Revo  
+   </label>
+   <hr>
+ </a>
+ <a href="{% url 'Storm' %}">
+   <label class="radio">
+   <input type="radio" name="toolradio">Storm
+   </label>
+    <hr>
+  </a>
+  <a href="{% url 'Appium' %}">
+   <label class="radio activetab">
+   <input type="radio" name="toolradio">Appium
+   </label>
+    <hr>
+  </a>
+
+ </form>   
+    </div>
+</div>
+
+
+
+<form action="{% url 'Revo' %}" method="post">
+{% csrf_token %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css"/>
+<div class="col-md-3"> 
+     <div class="quote-box">  
+      <p class="quotation-mark">
+        Set Top Box
+        <span class="pull-right"><img src="{% static 'app/images/settopbox.png' %}"></span>
+      </p>  
+      <hr>
+
+<Div class="quote-text scroller" id="STBStatus">
+  </Div>
+
+
+   <div class="wrapper">
+     <div class="buttonHolder" onclick="pageload()">
+    <p><a href="Set_Top_Box" class="btn btn-primary btn-large">Get Settopbox Status &raquo;</a></p>
+</div>
+   </div>
+
+  
+    </div>
+</div>
+
+
+<div class="col-md-3"> 
+            <div class="quote-box"> 
+  <p class="quotation-mark">
+        Test Suite
+        <span class="pull-right"><img src="{% static 'app/images/suite.png' %}"></span>
+      </p>  
+      <hr>
+  <label class="checkbox">
+    <input type="checkbox" name="checks" value="REG_AGREED_SUITE01">REG_AGREED_SUITE01
+    </label>
+     <hr>
+    <label class="checkbox">
+    <input type="checkbox" name="checks" value="REG_AGREED_SUITE02">REG_AGREED_SUITE02
+    </label>
+     <hr>
+    <label class="checkbox">
+    <input type="checkbox" name="checks" value="REG_AGREED_SUITE03">REG_AGREED_SUITE03
+    </label>
+     <hr>
+    <label class="checkbox">
+    <input type="checkbox" name="checks" value="REG_AGREED_SUITE04">REG_AGREED_SUITE04
+    </label>
+     <hr>
+    <label class="checkbox">
+    <input type="checkbox" name="checks" value="REG_AGREED_SUITE05">REG_AGREED_SUITE05
+    </label>
+     <hr>
+    <label class="checkbox">
+    <input type="checkbox" name="checks" value="GENERAL_EVO_SCRIPTS">GENERAL_EVO_SCRIPTS
+    </label>
+     <hr>
+  
+      </div>
+</div>
+
+<div class="col-md-3"> 
+        <div class="quote-box runquote">  
+          <script type="text/javascript">
+          function show_alert()
+          {
+          alert("Run Successful!");
+          }
+          </script>
+          <input type="image" name="submit" img src="{% static 'app/images/run.png' %}" alt="Submit" />
+        </div>
+    </div>
+</form>
+    </div>
+</div>
+
+<!--test summary starts-->
+<<div class="container secondcontainer">
+<div class="row">
+  <div class="col-md-12 divsub" >
+       <div class="below-box">
+      <p class="quotation-mark2">
+        Test Summary
+        <span class="pull-right"><img src="{% static 'app/images/test.png' %}"></span>
+      </p>
+
+      <div class="panel panel-default">
+
+        <table class="table table-fixed">
+          <thead >
+            <tr>
+               <th class="col-xs-2 testhead"><p class="">Test Suite</p></th>
+         <th class="col-xs-2 testhead"><p class="headp">Test Case Name</p></th>
+         <th class="col-xs-2 testhead"><p class="headp">Set Top Box</p></th>
+         <th class="col-xs-2 testhead"><p class="headp">Start Time</p></th>
+         <th class="col-xs-2 testhead"><p class="headp">End Time</p></th>
+         <th class="col-xs-2 testhead"><p class="headp">Status</p></th>
+            </tr>
+          </thead>
+          <tbody class="scroller testsum">
+            <tr>
+      <td style="font-size:95%;" class="col-xs-2"><p>Test Suite #1</p></td><td style="font-size:95%;" class=" col-xs-2"><p>Test Case #1</p></td>
+       <td style="font-size:95%;" class="col-xs-2"><p>STB#1</p></td>
+       <td style="font-size:95%;" class="col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
+       <td style="font-size:95%;" class="col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
+       <td style="font-size:95%;" class="col-xs-2"> <span class="testreportwar testreport"> Not Tested</span></td>
+      </tr>
+            <tr>
+             <td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #1</p></td><td style="font-size:95%;" class=" col-xs-2"><p>Test Case #2</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>STB#1</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
+       <td style="font-size:95%;" class="col-xs-2"> <span class="testreportsuccess testreport">Completed</span></td>
+
+            </tr>
+
+            <tr>
+       <td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #2</p></td><td style="font-size:95%;" class=" col-xs-2"><p>Test Case #1</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>STB#1</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
+       <td style="font-size:95%;" class="col-xs-2"><span class="testreportfailed testreport">Test Failed</span></td>
+            </tr>
+            <tr>
+             <td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #3</p></td><td style="font-size:95%;" class=" col-xs-2"><p>Test Case #1</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>STB#2</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
+       <td style="font-size:95%;" class="col-xs-2"> <span class="testreportsuccess testreport">Completed</span></td>
+            </tr>
+            <tr>
+      <td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #3</p></td><td style="font-size:95%;" class=" col-xs-2"><p>Test Case #2</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>STB#2</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
+       <td style="font-size:95%;" class="col-xs-2"> <span class="testreportwar testreport"> Not Tested</span></td>
+            </tr>
+            <tr>
+              <td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #3</p></td><td style="font-size:95%;" class=" col-xs-2"><p>Test Case #4</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>STB#2</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
+      <td style="font-size:95%;" class="col-xs-2"> <span class="testreportwar testreport"> Not Tested</span></td>
+            </tr>
+
+        <tr>
+       <td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #5</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>Test Case #4</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>STB#3</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
+       <td style="font-size:95%;" class="col-xs-2"><span class="testreportfailed testreport">Test Failed</span></td>
+            </tr>
+
+
+      <tr>
+             <td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #5</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>Test Case #5</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>STB#3</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
+       <td style="font-size:95%;" class="col-xs-2"> <span class="testreportsuccess testreport">Completed</span></td>
+            </tr>
+
+
+      <tr>
+             <td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #5</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>Test Case #6</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>STB#3</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
+       <td style="font-size:95%;" class="col-xs-2"> <span class="testreportsuccess testreport">Completed</span></td>
+            </tr>
+
+      <tr>
+             <td style="font-size:95%;" class=" col-xs-2"><p>Test Suite #5</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>Test Case #1</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>STB#4</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:00:00 AM</p></td>
+       <td style="font-size:95%;" class=" col-xs-2"><p>9/22/2016  9:10:00 AM</p></td>
+       <td style="font-size:95%;" class="col-xs-2"> <span class="testreportsuccess testreport">Completed</span></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+  </div>
+  </div>
+
+<!--test summary ends-->
+      <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                     Powered by <img src="{% static 'app/images/hcl.png' %}"> 
+                </div> 
+            </div>
+        </div>
+    </footer>
+
+
+<script>
+   function stbststus(){
+      $.getJSON("Json", function(result){
+          $("#STBStatus").empty();
+            $.each(result, function(i, item){
+              if(item.STBStatus == "1"){
+                colorclass = "available"
+              }
+              if(item.STBStatus == "0"){
+                colorclass = "offline"
+              }
+              if(item.STBStatus == "2"){
+                colorclass = "In use"
+              }
+                $("#STBStatus").append("<label class='radio'><input type='radio' name='optradio' value='"+item.STBLabel+"'>" +item.STBLabel +"   <i class='fa fa-circle pull-right  "+colorclass+"' aria-hidden='true'></i></label> <hr>");
+            });
+        });
+   }
+</script>
+
+
+</body>
+</html>
